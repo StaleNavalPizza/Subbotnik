@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NLog;
 using Subbotnik.Model;
 using Subbotnik.Repository;
+using Subbotnik.Setup;
 
 namespace Subbotnik.Services
 {
@@ -12,12 +13,13 @@ namespace Subbotnik.Services
         private static readonly ILogger _logger = LogManager.GetLogger(nameof(MeetingService));
 
 
-        public List<Meeting> GetMeetings()
+        public IEnumerable<Meeting> GetMeetings()
         {
             _logger.Debug("{0}", nameof(GetMeetings));
             try
             {
-                var list = Meetings.GetAllMeetings();
+                var repo = RepositorySetup.Repo.Meetings;
+                var list = repo.Get();
                 return list;
             }
             catch (Exception exc)

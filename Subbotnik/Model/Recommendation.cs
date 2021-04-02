@@ -4,6 +4,8 @@ namespace Subbotnik.Model
 {
     public class Recommendation
     {
+        public int Id { get; set; }
+
         public Bastard Recommender { get; set; }
 
         public Movie Movie { get; set; }

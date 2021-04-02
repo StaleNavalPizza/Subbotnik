@@ -2,6 +2,8 @@
 {
     public class Movie
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public bool Validated { get; set; }
@@ -19,6 +21,7 @@
         {
             return new Movie
             {
+                Id = Id,
                 Title = Title,
                 Validated = Validated,
                 ProductionYear = ProductionYear,

@@ -8,23 +8,22 @@ using Subbotnik.Setup;
 
 namespace Subbotnik.Services
 {
-    public class BastardService
+    public class RecoService
     {
-        private static readonly ILogger _logger = LogManager.GetLogger(nameof(BastardService));
+        private static readonly ILogger _logger = LogManager.GetLogger(nameof(RecoService));
 
-
-        public IEnumerable<Bastard> GetBastards()
+        public IEnumerable<Recommendation> GetRecommendations()
         {
-            _logger.Debug("{0}", nameof(GetBastards));
+            _logger.Debug("{0}", nameof(GetRecommendations));
             try
             {
-                var repo = RepositorySetup.Repo.Bastards;
+                var repo = RepositorySetup.Repo.Recommendations;
                 var list = repo.Get();
                 return list;
             }
             catch (Exception exc)
             {
-                _logger.Error(exc, "{0} failed", nameof(GetBastards));
+                _logger.Error(exc, "{0} failed", nameof(GetRecommendations));
                 return null;
             }
         }
